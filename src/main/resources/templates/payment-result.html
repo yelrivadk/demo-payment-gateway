@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment Response</title>
+</head>
+<body>
+<h1>Payment Response</h1>
+<p th:text="'Status: ' + ${status}"></p>
+<p th:text="'Message: ' + ${message}"></p>
+<div th:if="${threeDSUrl}">
+    <p>3D Secure Authentication is required. Please <a th:href="${threeDSUrl}">click here</a> to complete the authentication.</p>
+</div>
+</body>
+</html>

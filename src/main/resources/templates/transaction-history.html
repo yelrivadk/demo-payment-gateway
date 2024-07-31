@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction List</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Transaction List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Transaction Reference</th>
+            <th>Transaction ID</th>
+            <th>Status</th>
+            <th>Message</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Card Number</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <td th:text="${transaction.id}"></td>
+            <td th:text="${transaction.transactionReference}"></td>
+            <td th:text="${transaction.transactionId}"></td>
+            <td th:text="${transaction.status}"></td>
+            <td th:text="${transaction.message}"></td>
+            <td th:text="${transaction.amount}"></td>
+            <td th:text="${transaction.currency}"></td>
+            <td th:text="${transaction.cardNumber}"></td>
+            <td th:text="${transaction.createdAt}"></td>
+            <td th:text="${transaction.updatedAt}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+@startuml
+actor Client
+entity "Payment Gateway" as Gateway
+entity "Bank API" as Bank
+
+Client -> Gateway: Send payment request
+Gateway -> Gateway: Validate payment details
+Gateway -> Bank: Send payment request
+Bank -> Bank: Process payment
+Bank -> Gateway: Return 3D Secure link
+Gateway -> Client: Return 3D Secure link
+
+Client -> Client: Complete 3D Secure authentication
+Client -> Bank: Submit authentication
+Bank -> Gateway: Return final payment status
+Gateway -> Client: Return payment result
+@enduml
